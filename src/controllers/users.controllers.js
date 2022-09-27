@@ -1,4 +1,5 @@
 import createUserService from "../services/users/createUser.service";
+import deleteUserService from "../services/users/deleteUser.service";
 import listUsersService from "../services/users/listUsers.service";
 
 const createUserController = async (request, response) => {
@@ -10,9 +11,17 @@ const createUserController = async (request, response) => {
 };
 
 const listUsersController = (request, response) => {
-  const listedUsers = listUsersService()
+  const listedUsers = listUsersService();
 
-  return response.json(listedUsers)
+  return response.json(listedUsers);
 };
 
-export { createUserController, listUsersController };
+const deleteUserController = (request, response) => {
+  const { id } = request.params;
+
+  const deletedUser = deleteUserService(id);
+
+  return response.json(deletedUser);
+};
+
+export { createUserController, listUsersController, deleteUserController };
