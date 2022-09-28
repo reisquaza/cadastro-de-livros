@@ -4,6 +4,7 @@ import {
   createUserController,
   deleteUserController,
   listUsersController,
+  updateUserController,
 } from "../controllers/users.controllers";
 import verifyEmailAvailability from "../middlewares/verifyEmailAvailability.middleware";
 
@@ -14,5 +15,7 @@ userRoutes.post("/", verifyEmailAvailability, createUserController);
 userRoutes.get("/", listUsersController);
 
 userRoutes.delete("/:id", deleteUserController);
+
+userRoutes.patch("/:id", updateUserController);
 
 export default userRoutes;
