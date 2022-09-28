@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { registerBookController } from "../controllers/books.controller";
 
 import {
   createUserController,
@@ -17,5 +18,7 @@ userRoutes.get("/", listUsersController);
 userRoutes.delete("/:id", deleteUserController);
 
 userRoutes.patch("/:id", updateUserController);
+
+// userRoutes.post("/:id/books", registerBookController);
 
 export default userRoutes;
